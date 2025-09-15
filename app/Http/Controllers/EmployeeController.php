@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Department;
+use App\Models\Position;
 
 class EmployeeController extends Controller
 {
@@ -12,10 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-    // 1. Mengambil semua data dari tabel 'employees' menggunakan Model
-    $employees = Employee::all();
+    // Ambil data employees, sekaligus data department dan position terkait
+    $employees = Employee::with(['department', 'position'])->get();
 
-    // 2. Mengirim data ke view dan menampilkannya
     return view('employees.index', ['employees' => $employees]);
     }
 
@@ -24,7 +25,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-    return view('employees.create');
+    $departments = Department::all();
+    $positions = Position::all();
+    return view('employees.create', compact('departments', 'positions'));
     }
 
     /**
@@ -62,7 +65,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-    return view('employees.edit', ['employee' => $employee]);
+    $departments = Department::all();
+    $positions = Position::all();
+    return view('employees.edit', compact('employee', 'departments', 'positions'));
     }
 
     /**

@@ -38,39 +38,43 @@
     + Tambah Karyawan
     </a>
     <table>
-        <thead>
+        <table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Lengkap</th>
+            <th>Email</th>
+            <th>Departemen</th> <th>Jabatan</th>   <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($employees as $employee)
             <tr>
-                <th>No</th>
-                <th>Nama Lengkap</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Aksi</th> </tr>
-        </thead>
-        <tbody>
-            @forelse ($employees as $employee)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $employee->nama_lengkap }}</td>
-                    <td>{{ $employee->email }}</td>
-                    <td>{{ $employee->status }}</td>
-                    <td>
-                        <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-edit">Edit</a>
-
-                        <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-delete" onclick="return confirm('Yakin mau hapus data ini?')">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="5">Tidak ada data.</td>
-                </tr>
-            @endforelse
-        </tbody>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $employee->nama_lengkap }}</td>
+                <td>{{ $employee->email }}</td>
+                <td>{{ $employee->department->nama_departemen }}</td>
+                <td>{{ $employee->position->nama_jabatan }}</td>
+                <td>{{ $employee->status }}</td>
+                <td>
+                    <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-edit">Edit</a>
+                    <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-delete" onclick="return confirm('Yakin mau hapus data ini?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="7">Tidak ada data.</td>
+            </tr>
+        @endforelse
+    </tbody>
+</table>
     </table>
 
 </body>

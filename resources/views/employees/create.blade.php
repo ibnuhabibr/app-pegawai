@@ -5,7 +5,9 @@
     <title>Tambah Karyawan</title>
     <style>
         body { font-family: sans-serif; } .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; } input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        label { display: block; margin-bottom: 5px; }
+        /* UBAH INI: Tambahkan 'select' biar stylenya sama */
+        input, textarea, select { width: 100%; padding: 8px; box-sizing: border-box; }
         button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
@@ -38,6 +40,26 @@
             <label>Alamat</label>
             <textarea name="alamat" rows="3" required></textarea>
         </div>
+
+        <div class="form-group">
+            <label>Departemen</label>
+            <select name="departemen_id" required>
+                <option value="" disabled selected>Pilih Departemen</option>
+                @foreach ($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->nama_departemen }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Jabatan</label>
+            <select name="jabatan_id" required>
+                <option value="" disabled selected>Pilih Jabatan</option>
+                @foreach ($positions as $position)
+                    <option value="{{ $position->id }}">{{ $position->nama_jabatan }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <button type="submit">Simpan</button>
     </form>
 </body>
