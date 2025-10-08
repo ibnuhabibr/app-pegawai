@@ -1,48 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Detail Pegawai</title>
-    <style>
-        body { font-family: sans-serif; }
-        table { border-collapse: collapse; width: 50%; margin-top: 20px;}
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; width: 30%; }
-    </style>
-</head>
-<body>
-    <h1>Detail Pegawai</h1>
+@extends('master')
 
-    <table>
-        <tr>
-            <th>Nama Lengkap</th>
-            <td>{{ $employee->nama_lengkap }}</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>{{ $employee->email }}</td>
-        </tr>
-        <tr>
-            <th>Nomor Telepon</th>
-            <td>{{ $employee->nomor_telepon }}</td>
-        </tr>
-        <tr>
-            <th>Tanggal Lahir</th>
-            <td>{{ $employee->tanggal_lahir }}</td>
-        </tr>
-        <tr>
-            <th>Alamat</th>
-            <td>{{ $employee->alamat }}</td>
-        </tr>
-        <tr>
-            <th>Tanggal Masuk</th>
-            <td>{{ $employee->tanggal_masuk }}</td>
-        </tr>
-        <tr>
-            <th>Status</th>
-            <td>{{ $employee->status }}</td>
-        </tr>
-    </table>
-    <br>
-    <a href="{{ route('employees.index') }}">Kembali ke Daftar</a>
-</body>
-</html>
+@section('title', 'Detail Pegawai')
+@section('page-title', 'Detail Pegawai')
+
+@section('content')
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">{{ $employee->nama_lengkap }}</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nama Lengkap</dt>
+            <dd class="col-sm-9">{{ $employee->nama_lengkap }}</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">{{ $employee->email }}</dd>
+
+            <dt class="col-sm-3">Nomor Telepon</dt>
+            <dd class="col-sm-9">{{ $employee->nomor_telepon }}</dd>
+
+            <dt class="col-sm-3">Tanggal Lahir</dt>
+            <dd class="col-sm-9">{{ $employee->tanggal_lahir }}</dd>
+
+            <dt class="col-sm-3">Alamat</dt>
+            <dd class="col-sm-9">{{ $employee->alamat }}</dd>
+
+            <dt class="col-sm-3">Tanggal Masuk</dt>
+            <dd class="col-sm-9">{{ $employee->tanggal_masuk }}</dd>
+
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">
+                @if($employee->status == 'aktif')
+                    <span class="badge bg-success">Aktif</span>
+                @else
+                    <span class="badge bg-danger">Nonaktif</span>
+                @endif
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer text-end">
+        <a href="{{ route('employees.index') }}" class="btn btn-secondary">Kembali</a>
+    </div>
+</div>
+@endsection
