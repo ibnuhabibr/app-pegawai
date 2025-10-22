@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Department;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::latest()->paginate(5);
+        // Muat relasi 'department' dan 'position' bersamaan dengan employee
+        $employees = Employee::with(['department', 'position'])->latest()->paginate(5);
         return view('employees.index', compact('employees'));
     }
 
     public function create()
     {
-    return view('employees.create');
+        $departments = Department::orderBy('nama_departemen')->get(); // Ambil semua department, urutkan A-Z
+        $positions = Position::orderBy('nama_jabatan')->get();     // Ambil semua position, urutkan A-Z
+        return view('employees.create', compact('departments', 'positions')); // Kirim ke view
     }
 
     public function store(Request $request)
@@ -44,10 +49,11 @@ class EmployeeController extends Controller
     return view('employees.show', compact('employee'));
     }
 
-    public function edit(string $id)
+    public function edit(Employee $employee) 
     {
-    $employee = Employee::find($id);
-    return view('employees.edit', compact('employee'));
+        $departments = Department::orderBy('nama_departemen')->get();
+        $positions = Position::orderBy('nama_jabatan')->get();
+        return view('employees.edit', compact('employee', 'departments', 'positions')); // Kirim ke view
     }
 
 public function update(Request $request, string $id)

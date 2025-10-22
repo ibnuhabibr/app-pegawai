@@ -9,9 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('employees', function (Blueprint $table) {
-            // Tambahkan kolom setelah kolom tanggal_masuk [cite: 4279]
             $table->unsignedBigInteger('departemen_id')->after('tanggal_masuk');
-            // Tambahkan kolom setelah kolom departemen_id [cite: 4280]
             $table->unsignedBigInteger('jabatan_id')->after('departemen_id');
 
             // Definisikan foreign key ke tabel departments [cite: 4281, 4282, 4305, 4306]

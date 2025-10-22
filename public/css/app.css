@@ -1,0 +1,449 @@
+/* ===== MINIMALIST MODERN UI/UX ===== */
+
+/* Minimalist Color Palette - Clean & Modern */
+:root {
+    /* Primary Colors - Minimalist but Modern */
+    --primary: #6366F1;
+    --primary-light: #A5B4FC;
+    --primary-dark: #4F46E5;
+    
+    /* Neutral Colors - Clean & Professional */
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    
+    /* Semantic Colors - Subtle & Clean */
+    --success: #10B981;
+    --success-light: #D1FAE5;
+    --warning: #F59E0B;
+    --warning-light: #FEF3C7;
+    --danger: #EF4444;
+    --danger-light: #FEE2E2;
+    --info: #3B82F6;
+    --info-light: #DBEAFE;
+    
+    /* Background & Surface */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9FAFB;
+    --bg-tertiary: #F3F4F6;
+    
+    /* Text Colors */
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-tertiary: #9CA3AF;
+    
+    /* Borders */
+    --border-light: #E5E7EB;
+    --border-medium: #D1D5DB;
+    
+    /* Shadows - Minimal & Clean */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Global Styles - Minimalist */
+body {
+    background: var(--bg-secondary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Minimal Transitions */
+* {
+    transition: all 0.2s ease;
+}
+
+/* Modern Minimalist Navbar */
+.navbar {
+    background: var(--bg-primary) !important;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-xs);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--text-primary) !important;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: var(--primary) !important;
+}
+
+/* Modern Nav Links */
+.nav-link-modern {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    margin: 0 0.25rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link-modern:hover {
+    color: var(--primary) !important;
+    background: var(--gray-50);
+}
+
+.nav-link-modern.active {
+    color: var(--primary) !important;
+    background: var(--primary-light);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.nav-link-modern i {
+    font-size: 16px;
+}
+
+/* Minimalist Cards */
+.card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--border-medium);
+}
+
+.card-header {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header.bg-primary {
+    background: var(--primary) !important;
+    color: white;
+    border-bottom: none;
+}
+
+.card-header.bg-success {
+    background: var(--success) !important;
+    color: white;
+    border-bottom: none;
+}
+
+.card-header.bg-warning {
+    background: var(--warning) !important;
+    color: white;
+    border-bottom: none;
+}
+
+.card-header.bg-info {
+    background: var(--info) !important;
+    color: white;
+    border-bottom: none;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-footer {
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-light);
+    border-radius: 0 0 12px 12px;
+    padding: 1rem 1.5rem;
+}
+
+/* Minimalist Tables */
+.table {
+    border-radius: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+}
+
+.table thead th {
+    background: var(--gray-50);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    border-top: none;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+.table tbody td {
+    padding: 0.875rem 1rem;
+    border-color: var(--border-light);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* Minimalist Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-success {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning);
+    border-color: var(--warning);
+    color: white;
+}
+
+.btn-info {
+    background: var(--info);
+    border-color: var(--info);
+    color: white;
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline-secondary {
+    color: var(--text-secondary);
+    border-color: var(--border-medium);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-300);
+    color: var(--text-primary);
+}
+
+/* Minimalist Form Controls */
+.form-control,
+.form-select {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.625rem 0.875rem;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: var(--bg-primary);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+}
+
+/* Minimalist Badges */
+.badge {
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid transparent;
+}
+
+.badge.bg-success {
+    background: var(--success-light) !important;
+    color: var(--success) !important;
+    border-color: var(--success);
+}
+
+.badge.bg-warning {
+    background: var(--warning-light) !important;
+    color: var(--warning) !important;
+    border-color: var(--warning);
+}
+
+.badge.bg-danger {
+    background: var(--danger-light) !important;
+    color: var(--danger) !important;
+    border-color: var(--danger);
+}
+
+.badge.bg-info {
+    background: var(--info-light) !important;
+    color: var(--info) !important;
+    border-color: var(--info);
+}
+
+/* Minimalist Alerts */
+.alert {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 0.875rem 1rem;
+    font-size: 14px;
+}
+
+.alert-success {
+    background: var(--success-light);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+/* Simple Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-light);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Minimalist Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.fab:hover {
+    background: var(--primary-dark);
+}
+
+/* Utility Classes */
+.text-primary {
+    color: var(--text-primary) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.text-muted {
+    color: var(--text-tertiary) !important;
+}
+
+.border-light {
+    border-color: var(--border-light) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+    
+    .btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 13px;
+    }
+    
+    .table-responsive {
+        border-radius: 8px;
+    }
+    
+    .navbar-brand div:last-child {
+        display: none;
+    }
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Additional Minimalist Utilities */
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.content-area {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
